@@ -1,15 +1,26 @@
 #!/usr/bin/env php
 <?php
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 define('LARAVEL_START', microtime(true));
 
-// Register the Composer autoloader...
 require __DIR__.'/vendor/autoload.php';
 
-// Bootstrap Laravel and handle the command...
-$status = (require_once __DIR__.'/bootstrap/app.php')
-    ->handleCommand(new ArgvInput);
+$app = require_once __DIR__.'/bootstrap/app.php';
 
-exit($status);
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
+$response = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+$kernel->terminate($input, $response);
+
+exit($response->getStatusCode());
+
+
