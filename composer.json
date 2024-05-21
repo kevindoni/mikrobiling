@@ -6,20 +6,33 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "arielmejiadev/larapex-charts": "^6.3",
+        "barryvdh/laravel-dompdf": "^2.2",
+        "evilfreelancer/routeros-api-php": "^2.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "jenssegers/agent": "^2.12",
+        "laravel/framework": "^11.5",
+        "laravel/sanctum": "^3.5",
+        "laravel/tinker": "^3.0",
+        "laravel/ui": "^4.5",
+        "laravelcollective/html": "^6.7",
+        "midtrans/midtrans-php": "^2.9",
+        "spatie/laravel-permission": "^6.0",
+        "yajra/laravel-datatables-oracle": "^12.0"
     },
     "require-dev": {
-        "driftingly/rector-laravel": "^1.0",
-        "fakerphp/faker": "^1.23",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
-        "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0",
-        "rector/rector": "^1.0",
-        "spatie/laravel-ignition": "^2.4"
+        "driftingly/rector-laravel": "^2.0",
+        "fakerphp/faker": "^1.24",
+        "laravel/pint": "^1.19",
+        "laravel/sail": "^1.29",
+        "laraveldaily/larastarters": "^3.0",
+        "mockery/mockery": "^1.5",
+        "nunomaduro/collision": "^9.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "phpunit/phpunit": "^13.0",
+        "rector/rector": "^2.0",
+        "spatie/laravel-ignition": "^2.6"
     },
     "autoload": {
         "psr-4": {
@@ -29,10 +42,15 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "app/Functions/formatByte.php",
+            "app/Functions/uptime.php"
+        ],
         "psr-4": {
             "Tests\\": "tests/"
         }
     },
+
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
